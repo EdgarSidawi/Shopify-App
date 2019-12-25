@@ -65,7 +65,10 @@ class ShopifyController extends Controller
         return response($products, 201);
     }
 
-    public function deleteProduct()
+    public function deleteProduct(Request $request)
     {
+        $products = Shopify::setShopUrl($this->shopUrl)->setAccessToken($this->accessToken)->delete(
+            "admin/products.json"
+        );
     }
 }
