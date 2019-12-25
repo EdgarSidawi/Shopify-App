@@ -17,7 +17,9 @@ class ShopifyController extends Controller
 
     public function getProducts(Request $request)
     {
-        $products = Shopify::setShopUrl($this->shopUrl)->setAccessToken($this->accessToken)->get("admin/products.json");
+        $products = Shopify::setShopUrl($this->shopUrl)
+            ->setAccessToken($this->accessToken)
+            ->get("admin/products.json");
 
         return response($products, 200);
     }
