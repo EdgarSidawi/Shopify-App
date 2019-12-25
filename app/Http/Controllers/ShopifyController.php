@@ -64,4 +64,8 @@ class ShopifyController extends Controller
 
         return response($products, 201);
     }
+
+    public function deleteProduct()
+    {
+    }
 }
