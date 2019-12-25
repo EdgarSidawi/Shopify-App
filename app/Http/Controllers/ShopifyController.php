@@ -30,12 +30,15 @@ class ShopifyController extends Controller
         // $product =  $request->all();
 
         // return ($product);
-        $products = Shopify::setShopUrl($this->shopUrl)->setAccessToken($this->accessToken)->post(
-            "admin/products.json",
-            [
-                "product" => $request->all()
-            ]
-        );
+
+        $products = Shopify::setShopUrl($this->shopUrl)
+            ->setAccessToken($this->accessToken)
+            ->post(
+                "admin/products.json",
+                [
+                    "product" => $request->all()
+                ]
+            );
 
         return response($products, 200);
     }
