@@ -43,3 +43,5 @@ Route::get('getProducts', 'ShopifyController@getProducts');
 Route::post('postProduct', 'ShopifyController@postProduct');
 
 Route::post('editProduct', 'ShopifyController@editProduct');
+
+Route::delete('deleteProduct', 'ShopifyController@deleteProduct');
