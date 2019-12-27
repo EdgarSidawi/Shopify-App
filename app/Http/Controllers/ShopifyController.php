@@ -60,6 +60,6 @@ class ShopifyController extends Controller
                 "admin/products/{$request->id}.json"
             );
 
-        return response($products, 201);
+        return response("Product deleted successfully", 201);
     }
 }
