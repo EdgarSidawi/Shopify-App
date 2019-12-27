@@ -12,7 +12,7 @@ class ShopifyController extends Controller
     public function __construct(Request $request)
     {
         $this->shopUrl = "my-laravel-store.myshopify.com";
-        $this->accessToken = "18a4af1b20f3dcafe25b9db4ab57c90e";
+        $this->accessToken = config("shopify.access_token");
     }
 
     public function getProducts(Request $request)
