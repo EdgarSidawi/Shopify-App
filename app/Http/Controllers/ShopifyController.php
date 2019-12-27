@@ -26,11 +26,6 @@ class ShopifyController extends Controller
 
     public function postProduct(Request $request)
     {
-        // $product = ["product" => $request->all()];
-        // $product =  $request->all();
-
-        // return ($product);
-
         $products = Shopify::setShopUrl($this->shopUrl)
             ->setAccessToken($this->accessToken)
             ->post(
@@ -45,8 +40,6 @@ class ShopifyController extends Controller
 
     public function editProduct(Request $request)
     {
-        // $product = ["product" => $request->all()];
-        // return ($product);
         $products = Shopify::setShopUrl($this->shopUrl)
             ->setAccessToken($this->accessToken)
             ->put(
@@ -61,7 +54,6 @@ class ShopifyController extends Controller
 
     public function deleteProduct(Request $request)
     {
-        // return ($request->id);
         $products = Shopify::setShopUrl($this->shopUrl)
             ->setAccessToken($this->accessToken)
             ->delete(
