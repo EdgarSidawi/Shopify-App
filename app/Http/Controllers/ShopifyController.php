@@ -65,16 +65,16 @@ class ShopifyController extends Controller
 
     public function webhook(Request $request)
     {
-        // return $request->all();
-        // return 'here so far';
         if ($request->header('X-Shopify-Hmac-Sha256')) {
             $hmac_header = $request->header('X-Shopify-Hmac-Sha256');
             $data = file_get_contents('php://input');
-            $calculated_hmac = base64_encode(hash_hmac('sha256', $data, config('shopify.secret'), true));
+            $calculated_hmac = base64_encode(hash_hmac('sha256', $data, env('WEBHOOK_CLIENT_SECRET'), true));
 
             logger('webhook came through');
-            logger('header ' . $request->header());
-            return response($request, 200);
+            logger($request->header('x-shopify-hmac-sha256'));
+            logger($calculated_hmac);
+            // logger($request);
+            // return response($request, 200);
 
             // if ($hmac_header != $calculated_hmac) {
             //     return Response::json(

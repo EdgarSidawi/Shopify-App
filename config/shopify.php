@@ -13,5 +13,5 @@ return [
 
     'key' => env("SHOPIFY_APIKEY", "null"),
     'secret' => env("SHOPIFY_SECRET", "null"),
-    'access_token' => env("SHOPIFY_ACCESS_TOKEN", "null")
+    'access_token' => env("SHOPIFY_ACCESS_TOKEN", "null"),
 ];
