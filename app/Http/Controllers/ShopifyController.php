@@ -73,7 +73,7 @@ class ShopifyController extends Controller
             $calculated_hmac = base64_encode(hash_hmac('sha256', $data, config('shopify.secret'), true));
 
             logger('webhook came through');
-            logger($request);
+            logger('header ' . $request->header());
             return response($request, 200);
 
             // if ($hmac_header != $calculated_hmac) {
