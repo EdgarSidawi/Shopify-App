@@ -21,6 +21,8 @@ class ShopifyController extends Controller
             ->setAccessToken($this->accessToken)
             ->get("admin/products.json");
 
+        return Shopify::getHeaders();
+
         return response($products, 200);
     }
 
