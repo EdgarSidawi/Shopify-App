@@ -1,6 +1,5 @@
 <?php
 
-use App\WebHookHandler;
 use Illuminate\Http\Request;
 use Oseintow\Shopify\Facades\Shopify;
 
@@ -48,10 +47,5 @@ Route::post('editProduct', 'ShopifyController@editProduct');
 Route::delete('deleteProduct/{id}', 'ShopifyController@deleteProduct');
 
 Route::webhooks('webhook');
-// (
-//     'webhook',
-//     function (Request $request) {
-//         $webhook = WebHookHandler::handler();
-//         return $webhook;
-//     }
-// );
+
+Route::post('shopifywebhook', 'ShopifyController@webhook');
