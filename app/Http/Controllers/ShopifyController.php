@@ -71,28 +71,34 @@ class ShopifyController extends Controller
             $calculated_hmac = base64_encode(hash_hmac('sha256', $data, env('WEBHOOK_CLIENT_SECRET'), true));
 
             logger('webhook came through');
-            logger($request->header('x-shopify-hmac-sha256'));
-            logger($calculated_hmac);
+            // logger($request->header('x-shopify-hmac-sha256'));
+            // logger($calculated_hmac);
             // logger($request);
             // return response($request, 200);
 
-            // if ($hmac_header != $calculated_hmac) {
-            //     return Response::json(
-            //         array(
-            //             'error' => true,
-            //             'message' => "invalid secret"
-            //         ),
-            //         403
-            //     );
-            // } else {
-            //     return Response::json(
-            //         array(
-            //             'error' => true,
-            //             'message' => "no secret"
-            //         ),
-            //         403
-            //     );
-            // }
-        };
+            if ($hmac_header != $calculated_hmac) {
+                // return response()->json(
+                //     array(
+                //         'error' => true,
+                //         'message' => "invalid secret"
+                //     ),
+                //     403
+                // );
+                logger("invalid webhook secret");
+            } else{ 
+                logger("webhook secret verified successfully");
+            }
+        }
+             else {
+                // return response()->json(
+                    // array(
+                    //     'error' => true,
+                    //     'message' => "no secret"
+                    // ),
+                    // 403
+                // );
+                logger("no webhook secret");
+            }
+        
     }
 }
